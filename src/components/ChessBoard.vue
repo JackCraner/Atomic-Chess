@@ -4,7 +4,7 @@
 
     <ChessSquare v-for="(row,rowIndex) in rows" :key="rowIndex" class="row">
       <ChessSquare v-for="(cell, cellIndex) in row" :key="cellIndex"
-           :classs="'cell'.concat(' ', cellColour(rowIndex,cellIndex))">
+           :class="'cell'.concat(' ', cellColour(rowIndex,cellIndex))">
         <ChessPiece v-if="cell !== ''" draggable="true" v-bind:type="cell[0]" v-bind:color="cell[1]"></ChessPiece>
       </ChessSquare>
     </ChessSquare>
@@ -77,7 +77,10 @@ export default {
 
 .cell {
   width: 50px;
-  height: 50px
+  height: 50px;
 
 }
+
+
+
 </style>
