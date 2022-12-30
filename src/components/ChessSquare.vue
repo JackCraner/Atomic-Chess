@@ -3,15 +3,17 @@
     :id="id"
     class="chessSquare"
     @dragover.prevent
-    @drop.prevent="drop">
+    @drop.prevent="dropMethod">
     <slot></slot>
   </div>
 </template>
 
 <script>
 
-import {useSlots} from "vue";
 
+
+
+import ChessBoard from "@/components/ChessBoard.vue";
 
 export default {
   props: {
@@ -20,21 +22,26 @@ export default {
 
 
 
+
   name: "ChessSquare",
   methods: {
-    drop: e => {
+    dropMethod(e){
 
       const pieceID = e.dataTransfer.getData('ChessPiece_id');
-
       const piece = document.getElementById(pieceID);
       piece.style.display = "block";
+
+      console.log(this.$parent.$parent.$data)
 
 
       e.target.appendChild(piece);
 
 
 
-    }
+    },
+
+
+
   }
 }
 </script>
@@ -44,5 +51,8 @@ export default {
     max-width: 100%;
     max-height: 100%;
 
-}
+  }
+
+
+
 </style>

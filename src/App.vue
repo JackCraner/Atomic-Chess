@@ -2,6 +2,7 @@
 
 import Banner from "@/components/Banner.vue";
 import ChessBoard from "@/components/ChessBoard.vue";
+import ChessButton from "@/components/ChessButton.vue";
 
 
 </script>
@@ -9,7 +10,9 @@ import ChessBoard from "@/components/ChessBoard.vue";
 <template>
   <div>
     Chess
-   <chess-board></chess-board>
+    <Banner></Banner>
+
+
   </div>
 
 </template>

@@ -1,10 +1,11 @@
 <template>
 
 
-  <img :id="color + ' ' + type"
+  <img :id="id"
        :draggable="draggable"
        @dragstart="dragStart"
-       @dragover.stop class="pieceImage" v-bind:src="'src/assets/' +color+ '_' +type + '.png'" alt="name">
+       @dragover.stop
+       class="pieceImage" v-bind:src="'src/assets/' +color+ '_' +type + '.png'" alt="name">
 
 </template>
 
@@ -22,12 +23,18 @@ export default {
     draggable:{
       type:String,
       required:true
+    },
+    id: {
+      type:String,
+      required:true
     }
 
   },
+
   methods: {
-    dragStart: e => {
+    dragStart(e) {
       const target = e.target;
+
       e.dataTransfer.setData('ChessPiece_id', target.id);
 
     }
@@ -35,7 +42,7 @@ export default {
   data()
   {
     return {
-      imageURL: ''
+      imageURL: '',
     }
 
   },
@@ -53,5 +60,6 @@ export default {
     max-height: 100%;
 
   }
+
 
 </style>
